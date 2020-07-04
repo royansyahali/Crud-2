@@ -15,8 +15,17 @@
 // Route::get('/register',"AuthController@Form");
 // Route::post('/welcome',"AuthController@Index");
 
-Route::get('/template',function(){
-    return view("adminLte.template");
-});
-Route::get('/',"TableController@Index");
-Route::get('/data-table',"TableController@DataTable");
+// Route::get('/template',function(){
+//     return view("adminLte.template");
+// });
+// Route::get('/',"TableController@Index");
+// Route::get('/data-table',"TableController@DataTable");
+
+Route::get('/pertanyaan','PertanyaanController@index');
+Route::get('/pertanyaan/create','PertanyaanController@create');
+Route::post('/pertanyaan/store','PertanyaanController@store');
+Route::get('/jawaban/{pertanyaan_id}','JawabanController@index')->name('jawaban.detail');
+Route::post('/jawaban/{pertanyaan_id}','JawabanController@store')->name('jawaban.store');
+Route::get('/pertanyaan/{id}/edit','PertanyaanController@edit');
+Route::put('/pertanyaan/{id}','PertanyaanController@update');
+Route::delete('/pertanyaan/{id}','PertanyaanController@delete');
